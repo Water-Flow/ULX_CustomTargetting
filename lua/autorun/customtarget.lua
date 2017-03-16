@@ -3,5 +3,5 @@ if SERVER then
 	include('sh_definitions.lua')
 	AddCSLuaFile('sh_definitions.lua')
 else
-	include('customtargets/sh_definitions.lua')
+	include('sh_definitions.lua')
 end
