@@ -17,7 +17,7 @@ custom_targets =
 		['func'] = function()
 				local t = {}
 				for _ , ply in pairs(player.GetAll()) do
-					if ply:IsTraitor() then table.insert(t,ply) end
+					if IsValid(ply) and ply:IsTraitor() then table.insert(t,ply) end
 				end
 				return t
 		end
@@ -29,7 +29,7 @@ custom_targets =
 		['func'] = function()
 				local t = {}
 				for _ , ply in pairs(player.GetAll()) do
-					if !ply:IsTraitor() then table.insert(t,ply) end
+					if IsValid(ply) and !ply:IsTraitor() then table.insert(t,ply) end
 				end
 				return t
 		end
@@ -41,7 +41,7 @@ custom_targets =
 		['func'] = function()
 				local t = {}
 				for _ , ply in pairs(player.GetAll()) do
-					if ply:IsDetective() then table.insert(t,ply) end
+					if IsValid(ply) and ply:IsDetective() then table.insert(t,ply) end
 				end
 				return t
 		end
@@ -56,7 +56,9 @@ custom_targets =
 		['func'] = function()
 				local t = {}
 				for _ , ply in pairs(team.GetPlayers(TEAM_GUARD)) do
-					table.insert(t,ply) 
+					if IsValid(ply) then
+						table.insert(t,ply)
+					end
 				end
 				return t
 		end
@@ -68,7 +70,9 @@ custom_targets =
 		['func'] = function()
 				local t = {}
 				for _ , ply in pairs(team.GetPlayers(TEAM_PRISONER)) do
-					table.insert(t,ply)
+					if IsValid(ply) then
+						table.insert(t,ply)
+					end
 				end
 				return t
 		end
@@ -80,7 +84,7 @@ custom_targets =
 		['func'] = function()
 				local t = {}
 				for _ , ply in pairs(player.GetAll()) do
-					if (JB:GetWarden() != nil) and (JB:GetWarden() == ply) then
+					if (JB:GetWarden() != nil) and (JB:GetWarden() == ply) and IsValid(ply) then
 						table.insert(t,ply)
 						break
 					end
@@ -98,7 +102,7 @@ custom_targets =
 		['func'] = function()
 				local t = {}
 				for _ , ply in pairs(player.GetAll()) do
-						if ply:Team() == TEAM_SPEC or ply:Team() == TEAM_SPECTATOR then 
+						if ply:Team() == TEAM_SPEC or ply:Team() == TEAM_SPECTATOR and IsValid(ply) then 
 							table.insert(t,ply) 
 						end
 				end

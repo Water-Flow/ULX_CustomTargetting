@@ -2,7 +2,7 @@ local function AdditionalTargetting(targets,ply)
 
 	local specifiedtbl = {}
 	for k,v in pairs(custom_targets) do
-		if string.find(v.keyword,string.Replace(targets,'#','')) then
+		if (v.keyword == targets) then
 			specifiedtbl = custom_targets[k]
 			break
 		end
@@ -13,6 +13,8 @@ local function AdditionalTargetting(targets,ply)
 			return specifiedtbl.func() 
 		end
 	end
+	--nothing found, return what ever targets was originally passed into
+	return targets
 end
 
 hook.Add('ULibGetUsersCustomKeyword','AdditionalCustomTargets',AdditionalTargetting)
