@@ -15,7 +15,7 @@ Note(s):
 
 This addon lets ulx users target by specific keywords for certain gamemodes as defined in 
 
-[sh_definitions.lua](sh_definitions.lua)
+[sh_definitions.lua](lua/sh_definitions.lua)
 
 For example, by default ULX will not allow a user to use the command "slap" to target Terrortown's traitors. Installing this addon
 comes with support for Terrortown and Jailbreak keywords. Such as but not limited to "Traitors, Innocents, Spectators", and "Prisioners, Warden, Guards".
