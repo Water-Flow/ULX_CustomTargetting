@@ -65,7 +65,7 @@ custom_targets =
 	},
 	[5] =
 	{
-		['keyword'] = '#prisioners',
+		['keyword'] = '#prisoners',
 		['gamemode'] = 'jailbreak',
 		['func'] = function()
 				local t = {}
